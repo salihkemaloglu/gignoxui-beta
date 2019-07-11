@@ -3,12 +3,12 @@ import { grpc } from '@improbable-eng/grpc-web';
 import { useState } from 'react';
 import { Button, Form, Message, Grid, Header, Segment } from 'semantic-ui-react'
 import { GeneralRequest, GeneralResponse } from '../../proto/gigxRR_pb';
-import { i18next } from '../../services/localization_service';
-import { DoSendEmailRequest } from '../../controllers/password_reset_controller';
-import { GeneralResponseModal } from '../../modals/general_response_modal';
-import { ValidateEmail } from '../../helpers/validation_helper';
+import { i18next } from '../../helpers/LocalizationHelper';
+import { DoSendEmailRequest } from '../../services/PasswordResetService';
+import { GeneralResponseModal } from '../../modals/GeneralResponseModal';
+import { ValidateEmail } from '../../helpers/ValidationHelper';
 import './password_reset.css';
-import { GetMessageType } from 'src/helpers/message_type_helper';
+import { GetMessageType } from 'src/helpers/MessageTypeHelper';
 var logo = require('../../app_root/images/logo.png');
 var logoGignox = require('../../app_root/images/logo_gignox.png');
 export const PasswordResetSendMail = () => {

@@ -1,5 +1,5 @@
-import { GeneralResponseModal } from '../modals/general_response_modal';
-import { MessageModal } from '../modals/message_modal';
+import { GeneralResponseModal } from '../modals/GeneralResponseModal';
+import { MessageModal } from '../modals/MessageModal';
 
 export function GetMessageType(generalResponseModalResponse_: GeneralResponseModal) {
     var modal = new MessageModal();

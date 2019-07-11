@@ -2,8 +2,8 @@ import { GetUserRequest, GetUserResponse, User } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
 import { ApiUrl } from '../global/urls_global'
-import { GeneralResponseModal } from '../modals/general_response_modal'
-import { lang } from 'src/services/localization_service';
+import { GeneralResponseModal } from '../modals/GeneralResponseModal'
+import { lang } from '../helpers/LocalizationHelper';
 var modal = new GeneralResponseModal()
 
 export function DoGetUserRequest(username_: string, callback: any) {

@@ -4,8 +4,9 @@ import { Redirect, Route } from 'react-router-dom';
 export const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
   let isSignedIn = false;
   let username = localStorage.getItem("username") === null ? "null" : localStorage.getItem("username")
-  let token = localStorage.getItem("token") === null ? "null" : localStorage.getItem("token")
-  if (username != "null" && token != "null") {
+  let tokenRR = localStorage.getItem("tokenRR") === null ? "null" : localStorage.getItem("tokenRR")
+  let tokenQC = localStorage.getItem("tokenQC") === null ? "null" : localStorage.getItem("tokenQC")
+  if (username != "null" && tokenRR != "null" && tokenQC != "null") {
     isSignedIn = true
     if (location.pathname == "/") {
       return (
@@ -58,8 +59,9 @@ export const AppPublic = ({ component: Component, layout: Layout, ...rest }) => 
 export const AppAuthenticatedTopMenu = ({ component: Component, layoutPublic: PublicLayout, layoutPrivate: PrivateLayout, ...rest }) => {
   let isSignedIn = false;
   let username = localStorage.getItem("username") === null ? "null" : localStorage.getItem("username")
-  let token = localStorage.getItem("token") === null ? "null" : localStorage.getItem("token")
-  if (username != "null" && token != "null") {
+  let tokenRR = localStorage.getItem("tokenRR") === null ? "null" : localStorage.getItem("tokenRR")
+  let tokenQC = localStorage.getItem("tokenQC") === null ? "null" : localStorage.getItem("tokenQC")
+  if (username != "null" && tokenRR != "null" && tokenQC != "null") {
     isSignedIn = true
   }
   return (
@@ -81,8 +83,9 @@ export const AppAuthenticatedTopMenu = ({ component: Component, layoutPublic: Pu
 }
 export const AppAuthenticatedRoute = ({ component: Component, ...rest }) => {
   let username = localStorage.getItem("username") === null ? "null" : localStorage.getItem("username")
-  let token = localStorage.getItem("token") === null ? "null" : localStorage.getItem("token")
-  if (username != "null" && token != "null" && location.pathname == "/") {
+  let tokenRR = localStorage.getItem("tokenRR") === null ? "null" : localStorage.getItem("tokenRR")
+  let tokenQC = localStorage.getItem("tokenQC") === null ? "null" : localStorage.getItem("tokenQC")
+  if (username != "null" && tokenRR != "null" && tokenQC != "null" && location.pathname == "/") {
     return (
       <Route
         {...rest}

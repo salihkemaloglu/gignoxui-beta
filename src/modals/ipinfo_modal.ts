@@ -1,6 +1,0 @@
-
-
-class GlobalIpInformationModal {
-   ip: string;
-   
-}

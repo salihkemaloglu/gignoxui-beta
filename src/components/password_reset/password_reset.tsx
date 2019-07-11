@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Button, Form, Message, Grid, Header, Segment, Dimmer, Loader, Progress } from 'semantic-ui-react'
-import { i18next } from '../../services/localization_service';
+import { i18next } from '../../helpers/LocalizationHelper';
 import { grpc } from '@improbable-eng/grpc-web';
 import { useState } from 'react';
 import { matchPath } from 'react-router-dom';
 var logo = require('../../app_root/images/logo.png');
 var logoGignox = require('../../app_root/images/logo_gignox.png');
 import './password_reset.css';
-import { DoCheckVerificationTokenRequest, DoResetUserPasswordRequest } from '../../controllers/password_reset_controller';
+import { DoCheckVerificationTokenRequest, DoResetUserPasswordRequest } from '../../services/PasswordResetService';
 import { GeneralRequest, GeneralResponse } from '../../proto/gigxRR_pb';
-import { GeneralResponseModal } from '../../modals/general_response_modal';
-import { GetMessageType } from '../../helpers/message_type_helper';
+import { GeneralResponseModal } from '../../modals/GeneralResponseModal';
+import { GetMessageType } from '../../helpers/MessageTypeHelper';
 var zxcvbn = require('zxcvbn');
 export const PasswordReset = () => {
 

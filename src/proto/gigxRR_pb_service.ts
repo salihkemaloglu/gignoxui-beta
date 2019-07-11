@@ -78,13 +78,13 @@ export namespace GigxRRService {
     static readonly requestType = proto_gigxRR_pb.SendEmailRequest;
     static readonly responseType = proto_gigxRR_pb.SendEmailResponse;
   }
-  export class GetIpInformation {
-    static readonly methodName = "GetIpInformation";
+  export class GetIPInformation {
+    static readonly methodName = "GetIPInformation";
     static readonly service = GigxRRService;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = proto_gigxRR_pb.GetIpInformationRequest;
-    static readonly responseType = proto_gigxRR_pb.GetIpInformationResponse;
+    static readonly requestType = proto_gigxRR_pb.GetIPInformationRequest;
+    static readonly responseType = proto_gigxRR_pb.GetIPInformationResponse;
   }
   export class CheckVerificationLink {
     static readonly methodName = "CheckVerificationLink";
@@ -125,5 +125,13 @@ export namespace GigxRRService {
     static readonly responseStream = false;
     static readonly requestType = proto_gigxRR_pb.DeleteFileRequest;
     static readonly responseType = proto_gigxRR_pb.DeleteFileResponse;
+  }
+  export class UploadFile {
+    static readonly methodName = "UploadFile";
+    static readonly service = GigxRRService;
+    static readonly requestStream = true;
+    static readonly responseStream = true;
+    static readonly requestType = proto_gigxRR_pb.UploadFileRequest;
+    static readonly responseType = proto_gigxRR_pb.UploadFileResponse;
   }
 }

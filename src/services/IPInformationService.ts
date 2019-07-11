@@ -1,18 +1,18 @@
-import { GetIpInformationRequest, GetIpInformationResponse, IpInformation } from "../proto/gigxRR_pb";
+import { GetIPInformationRequest, GetIPInformationResponse, IPInformation } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
 import { ApiUrl } from '../global/urls_global'
 
 function DoGetIpAddressRequest() {
-  const req = new GetIpInformationRequest();
-  var info = new IpInformation()
-  grpc.invoke(GigxRRService.GetIpInformation, {
+  const req = new GetIPInformationRequest();
+  var info = new IPInformation()
+  grpc.invoke(GigxRRService.GetIPInformation, {
     request: req,
     host: ApiUrl,
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);
     },
-    onMessage: (responseData: GetIpInformationResponse) => {
+    onMessage: (responseData: GetIPInformationResponse) => {
       info = responseData.getIpInformation() === null ? JSON.parse("null") : responseData.getIpInformation();
       console.log(info.getIpAddress());
       console.log(info.getCountryFlag());

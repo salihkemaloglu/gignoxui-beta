@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { NavMenu, TopMenuGeneral, TopMenuPrivate } from './components';
+import {  TopMenuGeneral, TopMenuPrivate } from './components';
 
 export const AppNavMenuLayout = props => {
   return (
     <div className='main-nav'>
       <TopMenuPrivate />
       <div className="left_side_bar" id="left_sidebar">
-        <NavMenu />
+        {/* <NavMenu /> */}
         {props.children}
       </div>
 

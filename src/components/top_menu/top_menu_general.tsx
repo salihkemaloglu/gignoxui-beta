@@ -43,8 +43,6 @@ export const TopMenuGeneral = () => {
                     <Menus style={{fontSize: '25px'}}/>
                 </div>
             </nav>
-
-        
             <div className="toggleLeftSideBar" style={{ display: toggleLeftSideBar ? 'block' : 'none' }}>
                 <nav className="float-lefts">
                     <div className="mr-auto">

@@ -8,13 +8,13 @@ var logoGignox = require('../../app_root/images/logo_gignox.png');
 import './authentication.css';
 import { useState } from 'react';
 import { UserLogin, User, GeneralResponse } from '../../proto/gigxRR_pb';
-import { i18next, lang } from '../../services/localization_service'
-import { DoLoginUserRequest, DoRegisterUserRequest, DoCheckUserToRegisterRequest } from '../../controllers/authentication_controller';
-import { GeneralResponseModal } from 'src/modals/general_response_modal';
+import { i18next, lang } from '../../helpers/LocalizationHelper'
+import { DoLoginUserRequest, DoRegisterUserRequest, DoCheckUserToRegisterRequest } from '../../services/AuthenticationService';
+import { GeneralResponseModal } from 'src/modals/GeneralResponseModal';
 import { grpc } from '@improbable-eng/grpc-web';
 import { Container, Divider, Grid, Header, Image, List, Menu, Responsive, Segment, Sidebar, Icon } from 'semantic-ui-react'
-import { GetMessageType } from 'src/helpers/message_type_helper';
-import { ValidateUsername, ValidateEmail } from 'src/helpers/validation_helper';
+import { GetMessageType } from 'src/helpers/MessageTypeHelper';
+import { ValidateUsername, ValidateEmail } from 'src/helpers/ValidationHelper';
 var zxcvbn = require('zxcvbn');
 
 export const Authentication = () => {
@@ -29,11 +29,11 @@ export const Authentication = () => {
   const [alreadyExistUserWarning, setalreadyExistUserWarning] = useState("nonExist");
   const [passwordStrenghtWidth, setpasswordStrenghtWidth] = useState("");
   const [passwordStrenghtColor, setpasswordStrenghtColor] = useState("off");
-  const [sidebarOpened, setsidebarOpened] = React.useState(false)
-  const [loginScreenOpened, setloginScreenOpened] = React.useState(false)
-  const [signupScreenOpened, setsignupScreenOpened] = React.useState(false)
-  const [activeMenu, setActiveMenu] = React.useState("home")
-  let [loginForm, setLoginForm] = React.useState("active")
+  const [sidebarOpened, setsidebarOpened] = useState(false)
+  const [loginScreenOpened, setloginScreenOpened] = useState(false)
+  const [signupScreenOpened, setsignupScreenOpened] = useState(false)
+  const [activeMenu, setActiveMenu] = useState("home")
+  const [loginForm, setLoginForm] = useState("active")
   let loginAttemptCount = 0;
   function sidebarScreenBack() {
     setloginScreenOpened(false)
@@ -129,7 +129,8 @@ export const Authentication = () => {
         setloginMessageType(response.MessageType);
         setloginMessageNotify(response.Message);
         if (generalResponseModalResponse_.GrpcResponseCode == grpc.Code.OK) {
-          localStorage.setItem("token", userLoginResponse_.getToken());
+          localStorage.setItem("tokenRR", userLoginResponse_.getTokenRr());
+          localStorage.setItem("tokenQC", userLoginResponse_.getTokenQc());
           localStorage.setItem("username", userLoginResponse_.getUsername());
           localStorage.setItem("languagecode", userLoginResponse_.getLanguageCode())
           localStorage.removeItem("loginAttemptCount")

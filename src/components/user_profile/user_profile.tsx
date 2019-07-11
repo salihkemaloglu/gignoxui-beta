@@ -3,10 +3,10 @@ import { Menu, Loader } from 'semantic-ui-react'
 import { matchPath } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { grpc } from '@improbable-eng/grpc-web';
-import { DoGetUserRequest } from '../../controllers/user_profile_controller';
+import { DoGetUserRequest } from '../../services/UserProfileService';
 import { User } from '../../proto/gigxRR_pb';
-import { GeneralResponseModal } from '../../modals/general_response_modal';
-import { GetMessageType } from '../../helpers/message_type_helper';
+import { GeneralResponseModal } from '../../modals/GeneralResponseModal';
+import { GetMessageType } from '../../helpers/MessageTypeHelper';
 import './user_profile.css';
 import { NotFound } from '../not_found';
 
