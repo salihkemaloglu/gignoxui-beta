@@ -27,3 +27,5 @@ stop:
 down:
 	docker-compose down
 
+rmi:
+	docker rmi $(docker images --filter "dangling=true" -q --no-trunc)

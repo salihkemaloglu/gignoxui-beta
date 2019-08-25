@@ -202,8 +202,7 @@
   text-align: center;
 }
 .authentication_logo_word {
-  width: 150px !important;
-  margin-bottom: 4px !important;
+  width: 130px !important;
 }
 .authentication-app-logo {
   animation: App-logo-spin infinite 40s linear;

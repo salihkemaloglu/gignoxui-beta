@@ -11,4 +11,5 @@ export * from './not_found/not_found_page';
 export * from './password_reset/password_reset';
 export * from './password_reset/password_reset_send_mail';
 export * from './settings/settings';
+export * from './create_time_capsule/create_time_capsule';
 
