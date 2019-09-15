@@ -1,7 +1,7 @@
 import {  CheckVerificationLinkRequest, CheckVerificationLinkResponse, GeneralRequest, SendEmailRequest, SendEmailResponse, GeneralResponse, ResetUserPasswordRequest, ResetUserPasswordResponse } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
-import { ApiUrl } from '../global/urls_global'
+import { ApiUrl } from '../environments/urls'
 import { GeneralResponseModal } from '../modals/GeneralResponseModal'
 import { lang } from '../helpers/LocalizationHelper';
 var modal = new GeneralResponseModal()

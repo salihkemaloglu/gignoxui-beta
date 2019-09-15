@@ -1,7 +1,7 @@
 import { GetIPInformationRequest, GetIPInformationResponse, IPInformation } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
-import { ApiUrl } from '../global/urls_global'
+import { ApiUrl } from '../environments/urls'
 
 function DoGetIpAddressRequest() {
   const req = new GetIPInformationRequest();

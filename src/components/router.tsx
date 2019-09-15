@@ -17,12 +17,12 @@ export const AppRouter = () => {
         <Switch>
           <AppAuthenticatedRoute exact path="/" component={WaitingComponent(Authentication)} />
           <AppRoute exact path="/home" layout={AppNavMenuLayout} component={WaitingComponent(Home)} />
-          <AppRoute exact path="/createtimecapsule" layout={AppNavMenuLayout} component={WaitingComponent(CreateTimeCapsule)} />
+          <AppRoute exact path="/create-time-capsule" layout={AppNavMenuLayout} component={WaitingComponent(CreateTimeCapsule)} />
           <AppRoute exact path="/help" layout={AppNavMenuLayout} component={WaitingComponent(Help)} />
           <AppRoute exact path="/about" layout={AppNavMenuLayout} component={WaitingComponent(About)} />
           <AppRoute exact path="/settings" layout={AppPrivateLayout} component={WaitingComponent(Settings)} />
-          <Route exact path="/password_reset" component={WaitingComponent(PasswordResetSendMail)} />
-          <Route path="/password_reset/:id" component={WaitingComponent(PasswordReset)} />
+          <Route exact path="/password-reset" component={WaitingComponent(PasswordResetSendMail)} />
+          <Route path="/password-reset/:id" component={WaitingComponent(PasswordReset)} />
           <AppAuthenticatedTopMenu path="/:id" layoutPublic={AppGeneralLayout} layoutPrivate={AppPrivateLayout} component={WaitingComponent(Profile)} />
           <AppPublic path="*" layout={AppGeneralLayout} component={WaitingComponent(NotFoundPage)} />
         </Switch>
