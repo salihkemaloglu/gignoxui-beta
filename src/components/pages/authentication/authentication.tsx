@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { UserLogin, User, GeneralResponse } from '../../../proto/gigxRR_pb';
 import { i18next, lang } from '../../../helpers/LocalizationHelper'
 import { DoLoginUserRequest, DoRegisterUserRequest, DoCheckUserToRegisterRequest } from '../../../services/AuthenticationService';
-import { GeneralResponseModal } from 'src/modals/GeneralResponseModal';
+import { GeneralResponseModal } from 'src/modals/helper-models/GeneralResponseModal';
 import { grpc } from '@improbable-eng/grpc-web';
 import { Container, Divider, Grid, Header, Image, List, Menu, Responsive, Segment, Sidebar, Icon } from 'semantic-ui-react'
 import { GetMessageType } from 'src/helpers/MessageTypeHelper';

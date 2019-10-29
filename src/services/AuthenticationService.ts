@@ -2,10 +2,9 @@ import { LoginUserRequest, LoginUserResponse, UserLogin, User, RegisterUserReque
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
 import { ApiUrl } from '../environments/urls'
-import { GeneralResponseModal } from '../modals/GeneralResponseModal'
+import { GeneralResponseModal } from '../modals/helper-models/GeneralResponseModal'
 import { lang } from '../helpers/LocalizationHelper';
-var modal = new GeneralResponseModal()
-
+var modal = new GeneralResponseModal(-1, "");
 export function DoLoginUserRequest(userLogin_: UserLogin, callback: any) {
   const req = new LoginUserRequest();
   req.setUser(userLogin_);
@@ -19,7 +18,7 @@ export function DoLoginUserRequest(userLogin_: UserLogin, callback: any) {
     onMessage: (responseData_: LoginUserResponse) => {
       userLogin_ = responseData_.getUser() === null ? JSON.parse("null") : responseData_.getUser();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(userLogin_, modal);
@@ -41,7 +40,7 @@ export function DoRegisterUserRequest(user_: User, callback: any) {
     onMessage: (responseData_: RegisterUserResponse) => {
       response = responseData_.getGeneralResponse() === null ? JSON.parse("null") : responseData_.getGeneralResponse();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(response, modal);
@@ -62,7 +61,7 @@ export function DoCheckUserToRegisterRequest(user_: User, callback: any) {
     onMessage: (responseData_: CheckUserToRegisterResponse) => {
       response = responseData_.getGeneralResponse() === null ? JSON.parse("null") : responseData_.getGeneralResponse();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(response, modal);

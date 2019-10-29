@@ -1,335 +1,297 @@
 .App {
-    text-align: center;
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-    pointer-events: none;
+  to {
+    transform: rotate(360deg);
   }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+}
+.image-upload > input {
+  display: none;
+}
+
+.image-upload img {
+  width: 80px;
+  cursor: pointer;
+}
+
+.line_crate {
+  border: 1px dashed #000;
+  width: 100%;
+  margin: auto;
+  margin-top: 2%;
+}
+.file_upload_zone {
+  display: inline-block;
+  width: 100%;
+  padding: 120px 0 0 0;
+  height: 100px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url("../../../assets/images/cloud-arrow-up.png") center center no-repeat;
+  border-radius: 20px;
+}
+#datePicker {
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 2px #e9e9e9;
+  border: 1px solid #aeaeae;
+  line-height: 16px;
+  padding: 6px 10px 5px;
+}
+#timePicker {
+  font-size: 13px;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 2px #e9e9e9;
+  border: 1px solid #aeaeae;
+  line-height: 16px;
+  padding: 6px 10px 5px;
+}
+.picker_label {
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0;
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.00938em;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .avatar-image {
+    float: left;
+    width: 30%;
   }
-  
-  .App-link {
-    color: #61dafb;
+  .label-text {
+    margin-top: 33%;
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .pickers-anonym {
+    float: left;
+    margin-left: 1px;
+    margin-top: 7px;
   }
-  .image-upload > input {
-    display: none;
+  .pickers {
+    float: left;
+    margin-left: 32px;
+    margin-top: -24px;
   }
-  
-  .image-upload img {
+
+  .label-text-publisher {
+    float: left;
+    margin-left: -108px;
+  }
+  .label-text-email {
+    float: right;
+    margin-right: -10px;
+    margin-top: -19px;
+  }
+  .anonym-switch {
+    float: right;
+    margin-right: 1%;
+    margin-top: -49%;
+  }
+  .email-anonym {
+    margin-top: 2% !important;
+  }
+  .tooltip {
+    float: right;
+    margin-top: -25px;
+    margin-right: 22%;
+  }
+  .tooltip-anonym {
+    float: left;
+    margin-top: 8px;
+    margin-left: 2px;
+  }
+  .file-label {
     width: 80px;
-    cursor: pointer;
+    margin-top: 4%;
+    margin-left: -10px;
   }
-  
-  .line_crate {
-    border: 1px dashed #000;
-    width: 100%;
-    margin: auto;
+  .hash-text {
+    word-break: break-all;
+  }
+  .file-label-anonym {
+    width: 78px;
+    margin-left: -10px;
+  }
+  .publisher-info-anonym {
+    float: left;
+    margin-top: 3%;
+    margin-left: -3%;
+    text-align: left;
+  }
+  .progress {
+    margin-top: 4%;
+  }
+  .progress-message {
+    margin-top: -4%;
+  }
+  #datePicker {
+    width: 100%
+  }
+  #timePicker {
+    width: 100%
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .pickers-anonym {
+    margin-top: 92px;
+    float: left;
+    margin-left: -213px;
+  }
+  .pickers {
+    margin-top: 69px;
+    float: left;
+    margin-left: 4px;
+  }
+  .pickers-label {
+    margin-left: -24%;
+  }
+  .avatar-image {
+    float: left;
+  }
+  .label-text {
+    float: left;
+    margin-left: 2%;
+    text-align: left;
+  }
+  .tooltip {
+    float: right;
+  }
+  .file-label {
+    width: 116px;
+    margin-left: 19%;
+  }
+
+  .file-label-anonym {
+    width: 159px;
+    margin-left: 13%;
+    margin-top: 18%;
+  }
+  .hash-text {
+    word-break: break-all;
+  }
+  .publisher-info-anonym {
+    float: left;
+    margin-top: 3%;
+    margin-left: 2%;
+    text-align: left;
+  }
+  .progress {
     margin-top: 2%;
   }
-  .file_upload_zone {
-    display: inline-block;
-    width: 100%;
-    padding: 120px 0 0 0;
-    height: 100px;
-    overflow: hidden;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: url("../../../assets/images/cloud-arrow-up.png") center center no-repeat;
-    border-radius: 20px;
+  .progress-message {
+    margin-top: -2%;
   }
-  .react-datepicker-ignore-onclickoutside {
-    font-size: 13px;
-    border-radius: 4px;
-    box-shadow: inset 0 2px 2px #e9e9e9;
-    border: 1px solid #aeaeae;
-    line-height: 16px;
-    padding: 6px 10px 5px;
+  #datePicker {
+    width: 100%
   }
-  .picker_label {
-    color: rgba(0, 0, 0, 0.54);
-    padding: 0;
-    font-size: 1rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0.00938em;
+  #timePicker {
+    width: 100%
   }
-  
-  /* Mobile Styles */
-  @media only screen and (max-width: 400px) {
-    .avatar-image {
-      float: left;
-      width: 30%;
-    }
-    .label-text {
-      margin-top: 33%;
-    }
-    .pickers-anonym {
-      float: left;
-      margin-left: 1px;
-      margin-top: 7px;
-    }
-    .pickers-label-anonym {
-      float: left;
-      margin-top: 3%;
-      width: 11%;
-      margin-left: -3%;
-    }
-    .pickers {
-      float: left;
-      margin-left: 32px;
-      margin-top: -24px;
-    }
-    .pickers-label {
-      margin-top: 16%;
-      width: 9%;
-      margin-left: -2%;
-    }
-    .label-text-publisher {
-      float: left;
-      margin-left: -108px;
-    }
-    .label-text-email {
-      float: right;
-      margin-right: -10px;
-      margin-top: -19px;
-    }
-    .anonym-switch {
-      float: right;
-      margin-right: 1%;
-      margin-top: -49%;
-    }
-    .email-anonym {
-      margin-top: 2% !important;
-    }
-    .tooltip {
-      float: right;
-      margin-top: -25px;
-      margin-right: 22%;
-    }
-    .tooltip-anonym {
-      float: left;
-      margin-top: 8px;
-      margin-left: 2px;
-    }
-    .file-label {
-      width: 80px;
-      margin-top: 4%;
-      margin-left: -10px;
-    }
-    .hash-text {
-      float: left;
-      margin-left: 69px;
-      margin-top: -19px;
-      word-break: break-word;
-      text-align: left;
-    }
-    .file-label-anonym {
-      width: 78px;
-      margin-left: -10px;
-    }
-    .hash-text-anonym {
-      float: left;
-      margin-left: 70px;
-      margin-top: -19px;
-      word-break: break-word;
-      text-align: left;
-    }
-    .publisher-info-anonym {
-      float: left;
-      margin-top: 3%;
-      margin-left: -3%;
-      text-align: left;
-    }
-    .progress {
-      margin-top: 4%;
-    }
-    .progress-message {
-      margin-top: -4%;
-    }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .pickers-anonym {
+    margin-left: 5px;
+    float: left;
+    margin-top: 33px;
   }
-  
-  /* Tablet Styles */
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
-    .pickers-anonym {
-      margin-top: 92px;
-      float: left;
-      margin-left: -213px;
-    }
-    .pickers-label-anonym {
-      float: left;
-      margin-top: 13%;
-      width: 5%;
-      margin-left: -261px;
-    }
-    .pickers {
-      margin-top: 69px;
-      float: left;
-      margin-left: 4px;
-    }
-    .pickers-label {
-      float: left;
-      margin-top: 10%;
-      margin-left: 2%;
-      width: 5%;
-    }
-    .avatar-image {
-      float: left;
-    }
-    .label-text {
-      float: left;
-      margin-left: 2%;
-      text-align: left;
-    }
-    .tooltip {
-      float: left;
-      margin-top: 31px;
-      margin-left: 2px;
-    }
-    .tooltip-anonym {
-      float: left;
-      margin-top: 92px;
-      margin-left: -16px;
-    }
-    .file-label {
-      width: 116px;
-      margin-left: 19%;
-    }
-    .hash-text {
-      float: right;
-      margin-right: 3%;
-      margin-top: -19px;
-    }
-    .file-label-anonym {
-      width: 159px;
-      margin-left: 13%;
-      margin-top: 18%;
-    }
-    .hash-text-anonym {
-      float: right;
-      margin-right: 28px;
-      margin-top: -20px;
-    }
-    .publisher-info-anonym {
-      float: left;
-      margin-top: 3%;
-      margin-left: 2%;
-      text-align: left;
-    }
-    .progress {
-      margin-top: 2%;
-    }
-    .progress-message {
-      margin-top: -2%;
-    }
+  .pickers-label-anonym {
+    float: left;
   }
-  
-  /* Desktop Styles */
-  @media only screen and (min-width: 961px) {
-    .pickers-anonym {
-      margin-left: 5px;
-      float: left;
-      margin-top: 33px;
-    }
-    .pickers-label-anonym {
-      float: left;
-      margin-left: 1%;
-      margin-top: 35px;
-    }
-    .pickers {
-      margin-left: 5px;
-      float: left;
-      margin-top: 33px;
-    }
-    .pickers-label {
-      float: left;
-      margin-left: 2%;
-      margin-top: 37px;
-    }
-    .avatar-image {
-      float: left;
-    }
-    .App {
-      margin-left: 10%;
-    }
-  
-    .time_capsule_block {
-      width: 86%;
-    }
-    .button {
-      width: 86% !important;
-      margin-left: 10%;
-    }
-    .label-text {
-      float: left;
-      margin-left: 2%;
-      text-align: left;
-    }
-    .tooltip {
-      float: left;
-      margin-top: 33px;
-      margin-left: 3px;
-    }
-    .tooltip-anonym {
-      float: left;
-      margin-top: 33px;
-      margin-left: 3px;
-    }
-    .file-label {
-      float: left;
-      margin-top: 124px;
-      margin-left: -267px;
-    }
-    .hash-text {
-      float: left;
-      margin-left: -184px;
-      margin-top: 125px;
-    }
-    .file-label-anonym {
-      float: left;
-      margin-top: 97px;
-      margin-left: -267px;
-    }
-    .hash-text-anonym {
-      float: left;
-      margin-left: -187px;
-      margin-top: 97px;
-    }
-    .publisher-info-anonym {
-      float: left;
-      margin-top: 3%;
-      margin-left: 2%;
-      text-align: left;
-    }
-    .progress {
-      margin-top: 2%;
-    }
-    .progress-message {
-      margin-top: -2%;
-    }
-    .email-anonym {
-      margin-top: 15% !important;
-    }
+  .pickers {
+    margin-left: 5px;
+    float: left;
+    margin-top: 33px;
   }
-  
+  .pickers-label {
+    float: left;
+    margin-top: 1%;
+  }
+  .avatar-image {
+    float: left;
+    margin-top: 1%;
+  }
+  .App {
+    margin-left: 10%;
+  }
+
+  .time_capsule_block {
+    width: 86%;
+  }
+  .button {
+    width: 86% !important;
+    margin-left: 10%;
+  }
+  .label-text {
+    float: left;
+    margin-left: 2%;
+    text-align: left;
+  }
+  .tooltip {
+    float: right;
+  }
+  .tooltip-anonym {
+    float: right;
+  }
+  .file-label {
+    float: left;
+    margin-top: 124px;
+    margin-left: -267px;
+  }
+
+  .file-label-anonym {
+    float: left;
+    margin-top: 97px;
+    margin-left: -267px;
+  }
+
+  .publisher-info-anonym {
+    float: left;
+    margin-top: 3%;
+    margin-left: 2%;
+    text-align: left;
+  }
+  .progress {
+    margin-top: 2%;
+  }
+  .progress-message {
+    margin-top: -2%;
+  }
+  .email-anonym {
+    margin-top: 15% !important;
+  }
+}

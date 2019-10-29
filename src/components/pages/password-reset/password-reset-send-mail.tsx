@@ -5,7 +5,7 @@ import { Button, Form, Message, Grid, Header, Segment } from 'semantic-ui-react'
 import { GeneralRequest, GeneralResponse } from '../../../proto/gigxRR_pb';
 import { i18next } from '../../../helpers/LocalizationHelper';
 import { DoSendEmailRequest } from '../../../services/PasswordResetService';
-import { GeneralResponseModal } from '../../../modals/GeneralResponseModal';
+import { GeneralResponseModal } from '../../../modals/helper-models/GeneralResponseModal';
 import { ValidateEmail } from '../../../helpers/ValidationHelper';
 import { GetMessageType } from 'src/helpers/MessageTypeHelper';
 import './password-reset.css';

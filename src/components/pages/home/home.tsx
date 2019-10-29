@@ -1,213 +1,154 @@
 import * as React from 'react';
-import axios from 'axios'
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { Header, Icon, Segment } from 'semantic-ui-react'
-import './home.css'
+import { useState } from "react";
+import "./home.css";
+import { Segment, Image, Header, Label } from "semantic-ui-react";
+import { UserInformation } from "../../../modals/service-models/UserInformationModal";
+var avatarAnonym = require("../../../assets/images/avatar-anonym.png");
+var unitLogo = require("../../../assets/images/unit-logo.png");
 export const Home = () => {
-  var state = {
-    files: [],
-    fileName: '',
-    url: 'http://localhost:8900',
-    matget: '',
-    fileSize: 0,
-    selectedFile: FormData,
-  };
-
-
-  let data = new FormData();
-  function handleChange(selectorFiles: FileList) {
-    data.delete("file");
-    data.append("file", selectorFiles[0], selectorFiles[0].name);
-    var reader = new FileReader();
-    reader.onload = function () {
-      var arrayBuffer = reader.result;
-      let currentArray = arrayBuffer === null ? JSON.parse("null") : arrayBuffer;
-      state.files = currentArray;
-      state.fileName = selectorFiles[0].name;
-      state.fileSize = selectorFiles[0].size;
-      console.log("buffered");
-    };
-    reader.readAsArrayBuffer(selectorFiles[0]);
-  }
-
-  async function fileUploadHandler() {
-    let url = 'http://localhost:8904/uploadfile';
-    await axios.post(url,
-      data,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        onUploadProgress: (progressEvent) => {
-          var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-          console.log(percentCompleted);
+  var dates = new Date();
+  const [publisherInfo, setPublisherInfo] = useState<any>([]);
+  var damiData = [] as any;
+  function startCountdown() {
+    var interval = setInterval(() => {
+      console.log("damiData", damiData.length);
+      for (var i = 0; i < damiData.length; i++) {
+        var remaningTime = calculateCountdown(new Date(damiData[i].FileOpenedDate));
+        if (remaningTime.years <= 0 && remaningTime.days <= 0 && remaningTime.hours <= 0 && remaningTime.minutes <= 0) {
+          damiData.splice(i, 1);
+        } else {
+          damiData[i].RemaningDate.splice(0, 1);
+          damiData[i].RemaningDate.push(remaningTime);
         }
       }
-    ).then(res => {
-      console.log(res)
-      console.log('SUCCESS!!');
-    })
-      .catch(err => {
-        console.log(err)
-        console.log('FAILURE!!');
-      });
-  }
-  const useStyles = makeStyles(theme => ({
-    root: {
-      width: '90%',
-    },
-    button: {
-      marginRight: theme.spacing(1),
-    },
-    instructions: {
-      marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(1),
-    },
-  }));
+      setPublisherInfo([]);
+      damiData.sort(function (a: any, b: any) { return b.UnitAmount - a.UnitAmount });
+      setPublisherInfo(damiData);
+      console.log("damiData after", damiData.length);
+      console.log("damiData", damiData);
+      if (damiData.length <= 0) {
+        clearInterval(interval);
+      };
+    }, 600000);
+  };
 
-  function getSteps() {
-    return ['Upload file', 'Create an ad group', 'Create an ad'];
-  }
-
-  function getStepContent(step: any) {
-    switch (step) {
-      case 0:
-        return 'Upload file ...';
-      case 1:
-        return 'What is an ad group anyways?';
-      case 2:
-        return 'This is the bit I really care about!';
-      default:
-        return 'Unknown step';
+  document.addEventListener('DOMContentLoaded', (event) => {
+    for (let index = 0; index <= 100; index++) {
+      dates.setMinutes(dates.getMinutes() + 1);
+      var date = new Date(dates);
+      var userInfo = new UserInformation("", "", "", "", 0, []);
+      userInfo.Publisher = index + "name";
+      userInfo.FileName = index + "fileName";
+      userInfo.FileHash = "043a718774c572bd8a25adbeb1bfcd5c0256ae11cecf9f9c3f925d0e52beaf89";
+      userInfo.FileOpenedDate = date.toString();
+      userInfo.UnitAmount = Math.floor(Math.random() * 101) + 0.1;
+      userInfo.RemaningDate.push(calculateCountdown(dates))
+      damiData.push(userInfo);
     }
-  }
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
-  const steps = getSteps();
+    damiData.sort(function (a: any, b: any) { return b.UnitAmount - a.UnitAmount });
+    setPublisherInfo(damiData);
+    startCountdown();
+  });
+  function calculateCountdown(endDate: Date) {
 
-  function isStepOptional(step: any) {
-    return step === 1;
-  }
-
-  function isStepSkipped(step: any) {
-    return skipped.has(step);
-  }
-
-  function handleNext() {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
+    let diff = (Date.parse(new Date(endDate).toString()) - Date.parse(new Date().toString())) / 1000;
+    // clear countdown when date is reached
+    const timeLeft = {
+      years: 0,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      second: 0,
+    };
+    // calculate time difference between now and expected date
+    if (diff >= (365.25 * 86400)) { // 365.25 * 24 * 60 * 60
+      timeLeft.years = Math.floor(diff / (365.25 * 86400));
+      diff -= timeLeft.years * 365.25 * 86400;
     }
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  }
-
-  function handleBack() {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  }
-
-  function handleSkip() {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
+    if (diff >= 86400) { // 24 * 60 * 60
+      timeLeft.days = Math.floor(diff / 86400);
+      diff -= timeLeft.days * 86400;
     }
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(prevSkipped => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
+    if (diff >= 3600) { // 60 * 60
+      timeLeft.hours = Math.floor(diff / 3600);
+      diff -= timeLeft.hours * 3600;
+    }
+    if (diff >= 60) {
+      timeLeft.minutes = Math.floor(diff / 60);
+      diff -= timeLeft.minutes * 60;
+    }
+    return timeLeft;
   }
-
-  function handleReset() {
-    setActiveStep(0);
+  function addLeadingZeros(value: any) {
+    value = String(value);
+    while (value.length < 2) {
+      value = '0' + value;
+    }
+    return value;
+  }
+  const item = [] as any;
+  const TimeCapsule = (props: any) => {
+    var count = 0;
+    console.log("publisherInfo after", publisherInfo.length);
+    for (let index = 0; index < publisherInfo.length; index++) {
+      console.log("UnitAmount", publisherInfo[index].UnitAmount);
+      item.push(
+        <div className="time-capsule-block" >
+          <Segment placeholder color="green" >
+            <Segment.Group horizontal>
+              <Segment>
+                <div className="avatar-image" style={{ float: "left" }}>
+                  <Image src={avatarAnonym} size='small' />
+                </div>
+                <div className="publisher-info">
+                  <p ><strong>Publisher: </strong>{publisherInfo[index].Publisher}</p>
+                  <p className="file-name" ><strong>File Name: </strong>{publisherInfo[index].FileName}</p>
+                </div>
+                <div className="file-info">
+                  <p className="file-hash" ><strong>File Hash: </strong>{publisherInfo[index].FileHash}</p>
+                </div>
+                <div className="countdown-segment">
+                  <Label color="black" style={{ float: "right" }}>#{++count}</Label>
+                  <Segment.Group horizontal className="countdown-itself">
+                    <Segment className="square" >
+                      <Header as='h1'  >
+                        {addLeadingZeros(publisherInfo[index].RemaningDate[0].years)}
+                        <Header.Subheader >{publisherInfo[index].RemaningDate[0].years === 1 ? 'Year' : 'Years'}</Header.Subheader>
+                      </Header>
+                    </Segment>
+                    <Segment className="square">
+                      <Header as='h1'  >
+                        {addLeadingZeros(publisherInfo[index].RemaningDate[0].days)}
+                        <Header.Subheader >{publisherInfo[index].RemaningDate[0].days === 1 ? 'Day' : 'Days'}</Header.Subheader>
+                      </Header>
+                    </Segment>
+                    <Segment className="square">
+                      <Header as='h1' >
+                        {addLeadingZeros(publisherInfo[index].RemaningDate[0].hours)}
+                        <Header.Subheader>Hours</Header.Subheader>
+                      </Header>
+                    </Segment>
+                    <Segment className="square">
+                      <Header as='h1' >
+                        {addLeadingZeros(publisherInfo[index].RemaningDate[0].minutes)}
+                        <Header.Subheader>Minute</Header.Subheader>
+                      </Header>
+                    </Segment>
+                  </Segment.Group>
+                  <Label color='black' style={{ float: "right" }}>{publisherInfo[index].UnitAmount}  <img src={unitLogo} /></Label>
+                </div>
+              </Segment>
+            </Segment.Group>
+          </Segment>
+          <br />
+        </div>
+      );
+    }
+    return item;
   }
   return (
-    <div className="App" >
-      <div className="file-upload">
-        <Segment.Group>
-          <Segment />
-          <Segment placeholder>
-            <Header icon>
-              <Icon name='video' />
-              No documents are listed for this customer.
-        </Header>
-            <Button color="primary">Add Document</Button>
-          </Segment>
-        </Segment.Group>
-      </div>
-      <div className={classes.root}>
-        <Stepper activeStep={activeStep}>
-          {steps.map((label, index) => {
-            let stepProps = {};
-            let labelProps = {};
-            if (isStepOptional(index)) {
-              labelProps = <Typography variant="caption">Optional</Typography>;
-            }
-            if (isStepSkipped(index)) {
-              stepProps = false;
-            }
-            return (
-              <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper>
-        <div>
-          {activeStep === steps.length ? (
-            <div>
-              <Typography className={classes.instructions}>
-                All steps completed - you&apos;re finished
-            </Typography>
-              <Button onClick={handleReset} className={classes.button}>
-                Reset
-            </Button>
-            </div>
-          ) : (
-              <div>
-                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                <div>
-                  <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                    Back
-              </Button>
-                  {isStepOptional(activeStep) && (
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleSkip}
-                      className={classes.button}
-                    >
-                      Skip
-                    </Button>
-                  )}
-
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                  </Button>
-                </div>
-              </div>
-            )}
-        </div>
-      </div>
-      <input type="file" onChange={(e: any) => handleChange(e.target.files)} />
-      <button onClick={name} color="primary">test</button>
-      <button onClick={fileUploadHandler} color="primary">fileUploadHandler</button>
+    <div className="App" style={{ paddingTop: '2%' }}>
+      <TimeCapsule />
     </div>
   );
 };

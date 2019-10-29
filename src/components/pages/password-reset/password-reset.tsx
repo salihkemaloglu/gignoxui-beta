@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { matchPath } from 'react-router-dom';
 import { DoCheckVerificationTokenRequest, DoResetUserPasswordRequest } from '../../../services/PasswordResetService';
 import { GeneralRequest, GeneralResponse } from '../../../proto/gigxRR_pb';
-import { GeneralResponseModal } from '../../../modals/GeneralResponseModal';
+import { GeneralResponseModal } from '../../../modals/helper-models/GeneralResponseModal';
 import { GetMessageType } from '../../../helpers/MessageTypeHelper';
 import './password-reset.css';
 var logo = require('../../../assets/images/logo.png');

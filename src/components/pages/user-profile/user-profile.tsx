@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { grpc } from '@improbable-eng/grpc-web';
 import { DoGetUserRequest } from '../../../services/UserProfileService';
 import { User } from '../../../proto/gigxRR_pb';
-import { GeneralResponseModal } from '../../../modals/GeneralResponseModal';
+import { GeneralResponseModal } from '../../../modals/helper-models/GeneralResponseModal';
 import { GetMessageType } from '../../../helpers/MessageTypeHelper';
 import { NotFound } from '../../render-pages/not-found';
 import './user-profile.css';

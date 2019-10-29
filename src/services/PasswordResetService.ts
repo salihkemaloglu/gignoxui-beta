@@ -1,12 +1,10 @@
-import {  CheckVerificationLinkRequest, CheckVerificationLinkResponse, GeneralRequest, SendEmailRequest, SendEmailResponse, GeneralResponse, ResetUserPasswordRequest, ResetUserPasswordResponse } from "../proto/gigxRR_pb";
+import { CheckVerificationLinkRequest, CheckVerificationLinkResponse, GeneralRequest, SendEmailRequest, SendEmailResponse, GeneralResponse, ResetUserPasswordRequest, ResetUserPasswordResponse } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
 import { ApiUrl } from '../environments/urls'
-import { GeneralResponseModal } from '../modals/GeneralResponseModal'
+import { GeneralResponseModal } from '../modals/helper-models/GeneralResponseModal'
 import { lang } from '../helpers/LocalizationHelper';
-var modal = new GeneralResponseModal()
-
-
+var modal = new GeneralResponseModal(-1, "");
 export function DoSendEmailRequest(generalRequest_: GeneralRequest, callback: any) {
   const req = new SendEmailRequest();
   var response = new GeneralResponse();
@@ -21,7 +19,7 @@ export function DoSendEmailRequest(generalRequest_: GeneralRequest, callback: an
     onMessage: (responseData_: SendEmailResponse) => {
       response = responseData_.getGeneralResponse() === null ? JSON.parse("null") : responseData_.getGeneralResponse();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(response, modal);
@@ -42,7 +40,7 @@ export function DoCheckVerificationTokenRequest(generalRequest_: GeneralRequest,
     onMessage: (responseData: CheckVerificationLinkResponse) => {
       response = responseData.getGeneralResponse() === null ? JSON.parse("null") : responseData.getGeneralResponse();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(response, modal);
@@ -63,7 +61,7 @@ export function DoResetUserPasswordRequest(generalRequest_: GeneralRequest, call
     onMessage: (responseData: ResetUserPasswordResponse) => {
       response = responseData.getGeneralResponse() === null ? JSON.parse("null") : responseData.getGeneralResponse();
     },
-    onEnd: (code_: grpc.Code, msg_: string | undefined, trailers: grpc.Metadata) => {
+    onEnd: (code_: grpc.Code, msg_: string, trailers: grpc.Metadata) => {
       modal.GrpcResponseCode = code_;
       modal.GrpcResponseMessage = msg_;
       callback(response, modal);
