@@ -1,7 +1,7 @@
 import { LoginUserRequest, LoginUserResponse, UserLogin, User, RegisterUserRequest, RegisterUserResponse, GeneralResponse, CheckUserToRegisterRequest, CheckUserToRegisterResponse } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
-import { ApiUrl } from '../environments/urls'
+import { RRServiceUrl } from '../environments/urls'
 import { GeneralResponseModal } from '../modals/helper-models/GeneralResponseModal'
 import { lang } from '../helpers/LocalizationHelper';
 var modal = new GeneralResponseModal(-1, "");
@@ -10,7 +10,7 @@ export function DoLoginUserRequest(userLogin_: UserLogin, callback: any) {
   req.setUser(userLogin_);
   grpc.invoke(GigxRRService.Login, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);
@@ -32,7 +32,7 @@ export function DoRegisterUserRequest(user_: User, callback: any) {
   req.setUser(user_);
   grpc.invoke(GigxRRService.Register, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);
@@ -53,7 +53,7 @@ export function DoCheckUserToRegisterRequest(user_: User, callback: any) {
   req.setUser(user_);
   grpc.invoke(GigxRRService.CheckUserToRegister, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);

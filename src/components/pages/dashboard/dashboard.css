@@ -1,0 +1,116 @@
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .avatar-image {
+    float: left;
+    width: 30%;
+  }
+  .publisher-info {
+    float: left;
+    margin-top: 3%;
+    margin-left: 3%;
+    text-align: left;
+  }
+  .file-info {
+    float: left;
+    margin-top: 3%;
+    margin-left: -3%;
+    text-align: left;
+  }
+  .square {
+    width: 70px;
+    height: 70px;
+  }
+  .countdown-segment{
+    margin-top: 20%;
+  }
+  .countdown-itself{
+    width: 100%;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .publisher-info {
+    float: left;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    text-align: left;
+    margin-left: 1%;
+  }
+  .file-info {
+    float: left;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    text-align: left;
+    margin-left: 1%;
+  }
+  .square {
+    width: 100px;
+    height: 100px;
+  }
+  .file-name {
+    margin-top: 2%;
+  }
+  .file-hash {
+    margin-top: 2%;
+  }
+  .countdown-segment{
+    margin-top: 23%;
+  }
+  .countdown-itself{
+    width: 100%;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .time-capsule-block {
+    width: 100%;
+    margin-left: -6%;
+  }
+
+  .publisher-info {
+    float: left;
+    margin-top: 3%;
+    margin-left: 1%;
+    text-align: left;
+  }
+  .file-info {
+    float: left;
+    margin-left: -143px;
+    margin-top: 10%;
+    text-align: left;
+  }
+  .square {
+    width: 100px;
+    height: 100px;
+  }
+  .file-name {
+    margin-top: 7%;
+  }
+  .file-hash {
+    margin-top: 7%;
+  }
+}
+.Countdown {
+  margin: 10px auto;
+  padding-bottom: 20px;
+}
+
+.Countdown-col {
+  display: inline-block;
+}
+
+.Countdown-col-element {
+  display: inline-block;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Countdown-col-element strong {
+  font-size: 50px;
+}
+.file-hash {
+  word-break: break-all;
+}

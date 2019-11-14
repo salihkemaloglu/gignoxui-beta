@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-export const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
+export const AppPrivateRoute = ({ component: Component, layout: Layout, ...rest }) => {
   let isSignedIn = false;
   let username = localStorage.getItem("username") === null ? "null" : localStorage.getItem("username")
   let tokenRR = localStorage.getItem("tokenRR") === null ? "null" : localStorage.getItem("tokenRR")
@@ -44,7 +44,7 @@ export const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
     />
   )
 }
-export const AppPublic = ({ component: Component, layout: Layout, ...rest }) => {
+export const AppPublicRoute = ({ component: Component, layout: Layout, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -56,7 +56,7 @@ export const AppPublic = ({ component: Component, layout: Layout, ...rest }) => 
     />
   )
 }
-export const AppAuthenticatedTopMenu = ({ component: Component, layoutPublic: PublicLayout, layoutPrivate: PrivateLayout, ...rest }) => {
+export const AppAuthenticatedTopMenuRoute = ({ component: Component, layoutPublic: PublicLayout, layoutPrivate: PrivateLayout, ...rest }) => {
   let isSignedIn = false;
   let username = localStorage.getItem("username") === null ? "null" : localStorage.getItem("username")
   let tokenRR = localStorage.getItem("tokenRR") === null ? "null" : localStorage.getItem("tokenRR")

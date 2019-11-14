@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gifted-outrider-244523",
+  "private_key_id": "f2f2635dcdbc2fe2968511b602d50811b276c970",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC4oEh+a3EbY6gt\n/qyhApJBacerE0s/viA+sUQXh+Yzbzus4daFR3/Q83/ZKw/bXniJqsNEA6Diic0t\nQ3jdya1mZfYvJDgMev/xgT/5RnNXXwwfGrcvvPOYtHiBiptlgjF8Qd5kFT5LR3/B\nyb8MCWPdUcHDqZzwj4yVtKi5gMmyS/amROrnyj2p3L4wO8bQigzpctPeDJTJFBy6\ngMvOxBNQBzKv2F+ChSL1os9PcF2CywUY+Xv9lCre3I9B1KJUgaIHlxWMF8TWwzwa\npOqg/UnK88u17EgTgF967hkkhU7PZ74XIyuLx5QhmpQgUAF7DOSWBav1WsAxWVaw\nP5I4zk4RAgMBAAECggEAD1qjFMJmLmcwDB0vKZe/Zom/xXIuEp/C6jvPRB607gec\n4KCKeNyMnGm3su2SHMYDQ72sDgq4NUbNBavkEBvO3CJ0IhECyUTsZp7/XUF246f/\np9GOtP1ji8pMcEeA62TzrRgEQPIEU3nffdQDm6JnR/dd5CIFr3rcr/GNi5nSjE2B\nNbVhCb4vl8mXYc5Qz8E4rxTvjYLhOiu/aghA4qAVFRX+aw3wBYTKBo+NiG/iSayJ\nQTr+pl6n1T8RBgJcVZqlEiuLIp4APqmGNlKAbEuSk1X2AydWxuQZJm0XQHOm8XY9\nFHJ7DO4zZQd5mWx3zBQf36Ae5X+UJIW8LarxQCn00QKBgQDpguIspVWyz7M/Jyq/\nCgCH9W7F5eSlsyNbzQBVDIPpD+uCiEKt1AR7g0ErMvIhGETCO+RrXnP7RwTEYe1B\nxVAwwW4E9LFo3DdTDdXgy8qpUlfbf3jPX2J6z1MiwiIhKNGXIwdTBc0WRxfkHsoB\nc4V5uvzqiPWqO9AzJ3m69QsNmQKBgQDKaChn/ixhVOkOhdh7/RF0T7tEiiSWfE07\n9A7builZ59jrastXpD+ZHby5TqBHZ4nSkYrTPNx3+qBR0RoTxrmK4a99xDD+6Tyw\nZjfsYVV8IdRqYIsf0y6H0hMOpHqrHWayzIiPB9z0m3J9DEPF+M61d8xEvC/WmmhD\nC081nIDfOQKBgDvNWT812IzCxJUX4sqqNRicspHcHoKRLi0Eg2FEo0O84AO+AdWi\nxsMbCkWV9oyjOnjD/evBdNKVjZL9wVVmwvK5lwON5yGDxGdw06WOi4hxni6Iptf1\nBbOOBSyRq0vyuDqMrgOFKNDbxDKX8AQPIc/bI4qtKL1ANEHlijdnKj2BAoGAMVNO\nvYEIibOqk/p0NksGzOR9S4eqwO2L2NdyI4PrfdhtWXmOEk6ZnRPNIQ+TKbOGt8T2\nIuJLDAYMucOOalFceAblwG1mT0jBnG9co4NY1MZdwIrEfL33Mew07rWQm1Cv7VTA\n1rJg209iiCzL+1vV7A1Ev19o/RBl5ijEZdk84qkCgYEArujKtZw6Pglkg0luSO+L\n6uiz0P2AsuFW4pDGFzcRxY3i5k8Y+NXd4qHPq9RRHYBKlgMqKHY1BKBDbHjfknyi\n7AMqGZ6XWYlJOUItqCOvVaMi3O1j/GjtLqVXezabR0UrDIotopZtYjFhPREGdIw6\nys1pwcUm2armzr23ZHlbgHk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gignox-outrider@gifted-outrider-244523.iam.gserviceaccount.com",
+  "client_id": "102783270142373753957",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gignox-outrider%40gifted-outrider-244523.iam.gserviceaccount.com"
+}

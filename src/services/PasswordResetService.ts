@@ -1,7 +1,7 @@
 import { CheckVerificationLinkRequest, CheckVerificationLinkResponse, GeneralRequest, SendEmailRequest, SendEmailResponse, GeneralResponse, ResetUserPasswordRequest, ResetUserPasswordResponse } from "../proto/gigxRR_pb";
 import { GigxRRService } from '../proto/gigxRR_pb_service';
 import { grpc } from '@improbable-eng/grpc-web';
-import { ApiUrl } from '../environments/urls'
+import { RRServiceUrl } from '../environments/urls'
 import { GeneralResponseModal } from '../modals/helper-models/GeneralResponseModal'
 import { lang } from '../helpers/LocalizationHelper';
 var modal = new GeneralResponseModal(-1, "");
@@ -11,7 +11,7 @@ export function DoSendEmailRequest(generalRequest_: GeneralRequest, callback: an
   req.setGeneralrequest(generalRequest_);
   grpc.invoke(GigxRRService.SendEmail, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);
@@ -32,7 +32,7 @@ export function DoCheckVerificationTokenRequest(generalRequest_: GeneralRequest,
   req.setGeneralrequest(generalRequest_);
   grpc.invoke(GigxRRService.CheckVerificationLink, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);
@@ -53,7 +53,7 @@ export function DoResetUserPasswordRequest(generalRequest_: GeneralRequest, call
   req.setGeneralrequest(generalRequest_);
   grpc.invoke(GigxRRService.ResetUserPassword, {
     request: req,
-    host: ApiUrl,
+    host: RRServiceUrl,
     metadata: new grpc.Metadata({ "languagecode": lang }),
     onHeaders: (headers: grpc.Metadata) => {
       // console.log("onHeaders", headers);

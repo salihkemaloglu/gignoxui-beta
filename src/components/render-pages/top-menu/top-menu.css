@@ -13,7 +13,7 @@
     width: 92px;
   }
   .App-header {
-    background-color: #222;
+    background-color: #000;
     height: 150px;
     padding: 20px;
     color: white;
@@ -90,6 +90,7 @@
   }
   .mr-auto{
     padding: 10px;
+    background-color: #000;
   }
   .top_menu{
     background: linear-gradient(to right, #000 0%, #000 100%);
@@ -138,6 +139,7 @@ align-items: center;
 
   .mr-auto{
     padding: 10px;
+    background-color: #000;
   }
   .profil_bar{
     display: none;
@@ -163,7 +165,8 @@ align-items: center;
     display: none;
   }
   .mr-auto-topmenu{
-    width: 65%;
+    width: 100%;
+    background-color: #000;
   }
   .searchBox {
     width: 100% !important;
@@ -536,5 +539,7 @@ margin-top: 5px;
   opacity: 1;
   pointer-events: auto;
 }
-
+.ui.inverted.menu{
+  background-color: #000 !important;
+}
 }
