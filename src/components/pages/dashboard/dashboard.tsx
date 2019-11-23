@@ -33,7 +33,7 @@ export const Dashboard = () => {
   };
 
   document.addEventListener('DOMContentLoaded', (event) => {
-    for (let index = 0; index <= 100; index++) {
+    for (let index = 0; index <= 1; index++) {
       dates.setMinutes(dates.getMinutes() + 1);
       var date = new Date(dates);
       var userInfo = new UserInformation("", "", "", "", 0, []);

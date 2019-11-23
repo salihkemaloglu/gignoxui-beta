@@ -1021,6 +1021,7 @@ export const Authentication = () => {
 
         </Sidebar.Pusher>
       </Responsive>
+    
     </div>
   );
 };
